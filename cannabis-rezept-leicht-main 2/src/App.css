@@ -1,0 +1,251 @@
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Background accents - improved for responsiveness */
+.bg-accent {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.bg-accent-1 {
+  top: 10vh;
+  left: 5vw;
+  width: 50vw;
+  height: 40vh;
+  background: linear-gradient(45deg, var(--cannabis-green-300), var(--cannabis-green-500));
+  animation: float 20s ease-in-out infinite alternate;
+}
+
+.bg-accent-2 {
+  top: 30vh;
+  right: 5vw;
+  width: 40vw;
+  height: 35vh;
+  background: linear-gradient(120deg, var(--cannabis-green-200), #a5d6a7);
+  animation: float 25s ease-in-out infinite alternate-reverse;
+}
+
+.bg-accent-3 {
+  bottom: 15vh;
+  left: 10vw;
+  width: 50vw;
+  height: 30vh;
+  background: linear-gradient(200deg, var(--cannabis-green-100), var(--cannabis-green-300));
+  animation: float 30s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(5%, 3%) scale(1.05);
+  }
+  100% {
+    transform: translate(-3%, 1%) scale(0.95);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bg-accent-1, .bg-accent-2, .bg-accent-3 {
+    opacity: 0.07;
+    filter: blur(60px);
+    width: 60vw;
+  }
+}
+
+/* Container adjustments for responsive layouts */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Text truncation utility */
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Word break for emails and long text */
+.break-words {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Added utility for keeping words together when possible */
+.word-break-keep-all {
+  word-break: keep-all;
+}
+
+/* Fix for flex content alignment */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Scrollable container that doesn't overflow page */
+.scrollable-content {
+  max-height: 80vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Responsive icon sizing */
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-lg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 640px) {
+  .icon-md {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .icon-lg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Text management utilities to prevent overflow */
+.text-container {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Responsive card adjustments */
+@media (max-width: 640px) {
+  .benefit-card {
+    padding: 0.75rem;
+  }
+  
+  .benefit-card h3 {
+    font-size: 0.875rem;
+  }
+  
+  .benefit-card p {
+    font-size: 0.75rem;
+  }
+  
+  .icon-container {
+    min-width: 2rem;
+  }
+}
+
+/* Container fix for "benefits" section */
+.benefits-grid .benefit-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.benefits-grid .benefit-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Adjustments for card content alignment */
+.card-flex-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-icon {
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+}
+
+.card-content {
+  flex: 1;
+  min-width: 0; /* This is crucial for text overflow handling */
+}
+
+/* Improved text containment for all text elements */
+h1, h2, h3, h4, h5, h6, p, span, div {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}

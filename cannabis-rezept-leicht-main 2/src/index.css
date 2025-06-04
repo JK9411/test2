@@ -1,0 +1,233 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 142 70% 45%; /* Green color for primary */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 142 70% 95%;
+    --accent-foreground: 142 70% 30%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 70% 45%;
+
+    --radius: 1rem;
+
+    /* Gradient Colors */
+    --gradient-start: 142 70% 85%;
+    --gradient-end: 180 70% 85%;
+    
+    /* Background Accents */
+    --bg-accent-1: 210 100% 97%;
+    --bg-accent-2: 142 60% 97%;
+  }
+
+  .dark {
+    --background: 222.2 24% 10%; /* Lightened dark mode background */
+    --foreground: 210 40% 98%; /* Improved contrast for text */
+
+    --card: 222.2 20% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 24% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142 70% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217.2 18% 24%; /* Lightened secondary */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 20% 24%; /* Lightened muted background */
+    --muted-foreground: 215 20.2% 75%; /* More visible muted text */
+
+    --accent: 217.2 18% 32%; /* More visible accent */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 40.6%; /* More visible destructive */
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 20% 24%; /* More visible border */
+    --input: 217.2 20% 24%;
+    --ring: 142 70% 45%;
+
+    /* Gradient Colors for Dark Mode */
+    --gradient-start: 142 40% 30%;
+    --gradient-end: 200 40% 30%;
+    
+    /* Background Accents for Dark Mode */
+    --bg-accent-1: 222 30% 18%;
+    --bg-accent-2: 142 30% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans transition-colors duration-300 min-h-screen;
+  }
+  
+  /* Dynamic background elements */
+  .bg-blob {
+    @apply absolute blur-3xl opacity-10 dark:opacity-[0.03] rounded-full;
+    animation: blob-bounce 25s infinite ease-in-out alternate;
+  }
+  
+  @keyframes blob-bounce {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(5%, 10%) scale(1.1); }
+    66% { transform: translate(-5%, 5%) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+  
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  /* Pulse animation */
+  .pulse-slow {
+    animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .7; }
+  }
+  
+  /* Scroll animations */
+  .scroll-animation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .scroll-animation.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-103 hover:shadow-xl;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply bg-cannabis-green-500 hover:bg-cannabis-green-600 text-white font-medium py-2.5 px-6 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  .btn-secondary {
+    @apply bg-white dark:bg-dark-gray-medium hover:bg-gray-50 dark:hover:bg-dark-gray-light text-dark-gray dark:text-white font-medium py-2.5 px-6 rounded-lg shadow-md border border-gray-200 dark:border-dark-gray-light transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  /* Layout utility classes - improved for responsiveness */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-container {
+    @apply pt-20 md:pt-24 px-4 md:px-6 container mx-auto min-h-[calc(100vh-4rem)] pb-16 md:pb-20;
+  }
+
+  .section-title {
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-dark-gray dark:text-white;
+  }
+
+  .section-subtitle {
+    @apply text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 md:mb-8;
+  }
+  
+  /* Glass morphism effects - improved for dark mode */
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg;
+  }
+  
+  .dark .glass {
+    @apply bg-gray-900/30 backdrop-blur-lg border border-gray-800/30 rounded-2xl shadow-lg;
+  }
+  
+  /* Card styles with better dark mode */
+  .modern-card {
+    @apply rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md;
+  }
+  
+  /* Gradient backgrounds */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-br from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))];
+  }
+  
+  /* Animations */
+  .fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .slide-in {
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(-10px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  .pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .7; }
+  }
+
+  /* Responsive grid layouts */
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6;
+  }
+
+  .responsive-grid-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6;
+  }
+}
